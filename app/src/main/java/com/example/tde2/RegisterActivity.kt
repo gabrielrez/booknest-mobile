@@ -19,6 +19,7 @@ class RegisterActivity  : AppCompatActivity() {
 
         image = findViewById(R.id.minhaImagem)
         linkLogin = findViewById(R.id.link_login)
+        btnRegister = findViewById(R.id.btnCadastrar)
 
         linkLogin.setOnClickListener {
             startActivity(Intent(this, LoginActivity::class.java))
@@ -27,6 +28,11 @@ class RegisterActivity  : AppCompatActivity() {
 
         image.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
+            finish()
+        }
+
+        btnRegister.setOnClickListener {
+            startActivity(Intent(this, HomeActivity::class.java))
             finish()
         }
     }
