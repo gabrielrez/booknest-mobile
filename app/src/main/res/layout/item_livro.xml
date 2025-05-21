@@ -8,14 +8,14 @@
     android:layout_margin="8dp">
 
     <ImageView
-        android:id="@+id/imagemLivro"
+        android:id="@+id/imageBook"
         android:layout_width="100dp"
         android:layout_height="150dp"
         android:scaleType="centerCrop"
         android:src="@drawable/capa_harry_potter" />
 
     <TextView
-        android:id="@+id/nomeLivro"
+        android:id="@+id/nameBook"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Nome do livro"
