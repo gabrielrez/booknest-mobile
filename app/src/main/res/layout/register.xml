@@ -11,7 +11,7 @@
     android:padding="20dp">
 
     <ImageView
-        android:id="@+id/minhaImagem"
+        android:id="@+id/mainImage"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:src="@drawable/logo"
@@ -27,13 +27,13 @@
         android:textSize="32sp"
         android:textStyle="bold"
         android:textColor="@color/white"
-        app:layout_constraintTop_toBottomOf="@id/minhaImagem"
+        app:layout_constraintTop_toBottomOf="@id/mainImage"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="48dp" />
 
     <EditText
-        android:id="@+id/etNome"
+        android:id="@+id/etName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="Nome"
@@ -55,7 +55,7 @@
         android:inputType="textEmailAddress"
         android:textColor="@color/white"
         android:backgroundTint="@color/white"
-        app:layout_constraintTop_toBottomOf="@id/etNome"
+        app:layout_constraintTop_toBottomOf="@id/etName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="32dp" />
@@ -75,7 +75,7 @@
         android:layout_marginTop="32dp" />
 
     <Button
-        android:id="@+id/btnCadastrar"
+        android:id="@+id/btnRegister"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Cadastrar"
@@ -92,7 +92,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/btnCadastrar"
+        app:layout_constraintTop_toBottomOf="@id/btnRegister"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:gravity="center"
@@ -108,7 +108,7 @@
             android:layout_marginEnd="20dp"/>
 
         <Button
-            android:id="@+id/link_login"
+            android:id="@+id/linkLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Fazer Login"

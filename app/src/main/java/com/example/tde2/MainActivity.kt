@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
-        btn = findViewById(R.id.entrar)
+        btn = findViewById(R.id.start)
 
         btn.setOnClickListener {
             startActivity(Intent(this, RegisterActivity::class.java))

@@ -11,7 +11,7 @@
     android:padding="20dp">
 
     <ImageView
-        android:id="@+id/minhaImagem"
+        android:id="@+id/mainImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/logo"
@@ -22,7 +22,7 @@
         android:id="@+id/scrollView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/minhaImagem"
+        app:layout_constraintTop_toBottomOf="@id/mainImage"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
@@ -47,7 +47,7 @@
                 app:layout_constraintEnd_toEndOf="parent" />
 
             <Button
-                android:id="@+id/entrar"
+                android:id="@+id/start"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/orange"
@@ -69,7 +69,7 @@
                 android:layout_height="wrap_content"
                 android:scaleType="fitCenter"
                 android:src="@drawable/estante"
-                app:layout_constraintTop_toBottomOf="@id/entrar"
+                app:layout_constraintTop_toBottomOf="@id/start"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
 
