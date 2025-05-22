@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -28,16 +29,28 @@ class HomeActivity : AppCompatActivity() {
 
         profilePicture.setOnClickListener {
             startActivity(Intent(this, ProfileActivity::class.java))
-            finish()
         }
 
         val listBooks = listOf(
             Book("Harry Potter", R.drawable.capa_harry_potter),
+            Book("Dom Casmurro", R.drawable.capa_dom_casmurro),
             Book("Os irmãos Karamazov", R.drawable.capa_irmaos),
-            Book("Dom Casmurro", R.drawable.capa_dom_casmurro)
+            Book("Flores para Algernon", R.drawable.capa_flores),
+            Book("Cristianismo puro e simples", R.drawable.capa_cristianismo),
+            Book("Crônicas de Nárnia", R.drawable.capa_cronicas),
+            Book("Dom Casmurro", R.drawable.capa_dom_casmurro),
+            Book("Os irmãos Karamazov", R.drawable.capa_irmaos),
+            Book("Flores para Algernon", R.drawable.capa_flores),
+            Book("Harry Potter", R.drawable.capa_harry_potter),
+            Book("Dom Casmurro", R.drawable.capa_dom_casmurro),
+            Book("Cristianismo puro e simples", R.drawable.capa_cristianismo),
+            Book("Os irmãos Karamazov", R.drawable.capa_irmaos),
+            Book("Flores para Algernon", R.drawable.capa_flores),
+            Book("Cristianismo puro e simples", R.drawable.capa_cristianismo)
         )
 
         recyclerBooks.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        recyclerBooks.layoutManager = GridLayoutManager(this, 3)
         recyclerBooks.adapter = BookAdapter(listBooks)
     }
 }

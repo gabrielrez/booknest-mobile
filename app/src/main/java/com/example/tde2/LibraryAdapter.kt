@@ -7,8 +7,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class BookAdapter(private val books: List<Book>) :
-    RecyclerView.Adapter<BookAdapter.BookViewHolder>() {
+class LibraryAdapter(private val books: List<Book>) :
+    RecyclerView.Adapter<LibraryAdapter.BookViewHolder>() {
 
     class BookViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imageBook: ImageView = itemView.findViewById(R.id.imageBook)

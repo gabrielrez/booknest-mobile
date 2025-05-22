@@ -33,12 +33,10 @@ class RegisterActivity  : AppCompatActivity() {
 
         linkLogin.setOnClickListener {
             startActivity(Intent(this, LoginActivity::class.java))
-            finish()
         }
 
         image.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
-            finish()
         }
 
         btnRegister.setOnClickListener {
@@ -50,7 +48,6 @@ class RegisterActivity  : AppCompatActivity() {
                 Toast.makeText(this, "Por favor, preencha todos os campos.", Toast.LENGTH_SHORT).show()
             } else {
                 startActivity(Intent(this, HomeActivity::class.java))
-                finish()
             }
         }
     }
