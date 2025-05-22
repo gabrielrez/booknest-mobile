@@ -34,6 +34,8 @@ class ProfileActivity : AppCompatActivity() {
 
         recyclerLibrary.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         recyclerLibrary.layoutManager = GridLayoutManager(this, 3)
-        recyclerLibrary.adapter = LibraryAdapter(listLibrary)
+        recyclerLibrary.adapter = LibraryAdapter(listLibrary) {
+            startActivity(Intent(this, BookActivity::class.java))
+        }
     }
 }

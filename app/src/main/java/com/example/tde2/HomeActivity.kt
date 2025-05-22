@@ -51,6 +51,8 @@ class HomeActivity : AppCompatActivity() {
 
         recyclerBooks.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         recyclerBooks.layoutManager = GridLayoutManager(this, 3)
-        recyclerBooks.adapter = BookAdapter(listBooks)
+        recyclerBooks.adapter = BookAdapter(listBooks) {
+            startActivity(Intent(this, BookActivity::class.java))
+        }
     }
 }

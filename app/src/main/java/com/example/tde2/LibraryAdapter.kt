@@ -7,7 +7,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class LibraryAdapter(private val books: List<Book>) :
+class LibraryAdapter(
+    private val books: List<Book>,
+    private val onItemClick: (Book) -> Unit
+) :
     RecyclerView.Adapter<LibraryAdapter.BookViewHolder>() {
 
     class BookViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -25,6 +28,10 @@ class LibraryAdapter(private val books: List<Book>) :
         val book = books[position]
         holder.nameBook.text = book.name
         holder.imageBook.setImageResource(book.imageResId)
+
+        holder.itemView.setOnClickListener {
+            onItemClick(book)
+        }
     }
 
     override fun getItemCount(): Int = books.size
