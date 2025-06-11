@@ -8,4 +8,7 @@ import retrofit2.http.Query
 interface BookApiService {
     @GET("api/books/search")
     fun searchBooks(@Query("book_name") bookName: String): Call<List<Book>>
+
+    @GET("api/books")
+    fun getUserBooks(): Call<List<Book>>
 }

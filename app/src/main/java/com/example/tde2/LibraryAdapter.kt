@@ -9,10 +9,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
 class LibraryAdapter(
-    private val books: List<Book>,
+    private var books: List<Book>,
     private val onItemClick: (Book) -> Unit
-) :
-    RecyclerView.Adapter<LibraryAdapter.BookViewHolder>() {
+) : RecyclerView.Adapter<LibraryAdapter.BookViewHolder>() {
 
     class BookViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imageBook: ImageView = itemView.findViewById(R.id.imageBook)
@@ -38,4 +37,9 @@ class LibraryAdapter(
     }
 
     override fun getItemCount(): Int = books.size
+
+    fun updateBooks(newBooks: List<Book>) {
+        books = newBooks
+        notifyDataSetChanged()
+    }
 }
