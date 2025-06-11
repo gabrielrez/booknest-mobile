@@ -5,3 +5,4 @@ BookNest é uma plataforma de leitura que oferece um catálogo completo de livro
 ## Tecnologias
 
 Android Nativo com Kotlin
+Retrofit para requisições HTTP
