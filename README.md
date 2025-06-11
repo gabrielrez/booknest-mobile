@@ -1,8 +1,17 @@
-# BookNest
+# 📚 BookNest
 
-BookNest é uma plataforma de leitura que oferece um catálogo completo de livros para você explorar. Com ela, você pode adicionar seus títulos favoritos à sua biblioteca pessoal, acompanhar o progresso das suas leituras e fazer anotações para registrar suas ideias e insights ao longo do caminho.
+**BookNest** é uma plataforma de leitura intuitiva e prática que oferece um catálogo completo de livros para você explorar. Com ela, você pode:
 
-## Tecnologias
+- Adicionar seus títulos favoritos à sua biblioteca pessoal  
+- Acompanhar o progresso das suas leituras  
+- Fazer anotações e registrar ideias e insights ao longo da jornada  
 
-Android Nativo com Kotlin <br>
-Retrofit para requisições HTTP
+---
+
+## 🚀 Tecnologias Utilizadas
+
+- **Backend:** PHP com [Laravel](https://laravel.com/)  
+- **Mobile (Android):** Nativo com Kotlin  
+- **Comunicação HTTP:** [Retrofit](https://square.github.io/retrofit/)  
+
+---
