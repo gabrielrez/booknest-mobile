@@ -2,57 +2,71 @@ package com.example.tde2
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageView
-import androidx.activity.enableEdgeToEdge
+import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.tde2.api.RetrofitClient
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class HomeActivity : AppCompatActivity() {
-    private lateinit var profilePicture: ImageView
-    private lateinit var logo: ImageView
     private lateinit var recyclerBooks: RecyclerView
+    private lateinit var editTextSearch: EditText
+    private lateinit var buttonSearch: Button
+    private lateinit var adapter: BookAdapter
+    private lateinit var profileBtn: LinearLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.home)
 
-        profilePicture = findViewById(R.id.avatar)
-        logo = findViewById(R.id.logoInicio)
         recyclerBooks = findViewById(R.id.recyclerBooksMain)
+        editTextSearch = findViewById(R.id.inputSearch)
+        buttonSearch = findViewById(R.id.btnSearch)
+        profileBtn = findViewById(R.id.userInfo)
 
-        logo.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
-        }
-
-        profilePicture.setOnClickListener {
+        profileBtn.setOnClickListener {
             startActivity(Intent(this, ProfileActivity::class.java))
         }
 
-        val listBooks = listOf(
-            Book("Harry Potter", R.drawable.capa_harry_potter),
-            Book("Dom Casmurro", R.drawable.capa_dom_casmurro),
-            Book("Os irmãos Karamazov", R.drawable.capa_irmaos),
-            Book("Flores para Algernon", R.drawable.capa_flores),
-            Book("Cristianismo puro e simples", R.drawable.capa_cristianismo),
-            Book("Crônicas de Nárnia", R.drawable.capa_cronicas),
-            Book("Dom Casmurro", R.drawable.capa_dom_casmurro),
-            Book("Os irmãos Karamazov", R.drawable.capa_irmaos),
-            Book("Flores para Algernon", R.drawable.capa_flores),
-            Book("Harry Potter", R.drawable.capa_harry_potter),
-            Book("Dom Casmurro", R.drawable.capa_dom_casmurro),
-            Book("Cristianismo puro e simples", R.drawable.capa_cristianismo),
-            Book("Os irmãos Karamazov", R.drawable.capa_irmaos),
-            Book("Flores para Algernon", R.drawable.capa_flores),
-            Book("Cristianismo puro e simples", R.drawable.capa_cristianismo)
-        )
-
-        recyclerBooks.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         recyclerBooks.layoutManager = GridLayoutManager(this, 3)
-        recyclerBooks.adapter = BookAdapter(listBooks) {
+        adapter = BookAdapter(emptyList()) { book ->
+            // Talvez enviar para o BookActivity com os dados dinamicos do livro
+            // Talvez adicionar direto na biblioteca
             startActivity(Intent(this, BookActivity::class.java))
         }
+        recyclerBooks.adapter = adapter
+
+        buttonSearch.setOnClickListener {
+            val query = editTextSearch.text.toString().trim()
+            if (query.isNotEmpty()) {
+                searchBooks(query)
+            } else {
+                Toast.makeText(this, "Digite o nome do livro", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    private fun searchBooks(bookName: String) {
+        RetrofitClient.instance.searchBooks(bookName).enqueue(object : Callback<List<Book>> {
+            override fun onResponse(call: Call<List<Book>>, response: Response<List<Book>>) {
+                if (response.isSuccessful && response.body() != null) {
+                    val books = response.body()!!
+                    adapter.updateBooks(books)
+                } else {
+                    Toast.makeText(this@HomeActivity, "Nenhum livro encontrado", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            override fun onFailure(call: Call<List<Book>>, t: Throwable) {
+                Toast.makeText(this@HomeActivity, "Erro na requisição: ${t.message}", Toast.LENGTH_SHORT).show()
+            }
+        })
     }
 }

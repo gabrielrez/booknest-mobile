@@ -27,9 +27,7 @@ class ProfileActivity : AppCompatActivity() {
         }
 
         val listLibrary = listOf(
-            Book("Harry Potter", R.drawable.capa_harry_potter),
-            Book("Os irmãos Karamazov", R.drawable.capa_irmaos),
-            Book("Cristianismo puro e simples", R.drawable.capa_cristianismo)
+            Book("123", "Harry Potter" , "teste", "teste", "teste")
         )
 
         recyclerLibrary.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)

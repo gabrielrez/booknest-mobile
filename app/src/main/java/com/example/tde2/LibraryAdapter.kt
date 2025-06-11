@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 
 class LibraryAdapter(
     private val books: List<Book>,
@@ -26,8 +27,10 @@ class LibraryAdapter(
 
     override fun onBindViewHolder(holder: BookViewHolder, position: Int) {
         val book = books[position]
-        holder.nameBook.text = book.name
-        holder.imageBook.setImageResource(book.imageResId)
+        holder.nameBook.text = book.title
+        Glide.with(holder.itemView.context)
+            .load(book.cover)
+            .into(holder.imageBook)
 
         holder.itemView.setOnClickListener {
             onItemClick(book)

@@ -57,17 +57,33 @@
         app:layout_constraintTop_toBottomOf="@id/logoInicio"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/catalog"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/searchBar"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Catalog"
-        android:textColor="@color/dark_blue"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_marginTop="32dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp"
         app:layout_constraintTop_toBottomOf="@id/wellcome"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <EditText
+            android:id="@+id/inputSearch"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:hint="Buscar livro"
+            android:padding="12dp"
+            android:textColor="@color/black"/>
+
+        <Button
+            android:id="@+id/btnSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Buscar"
+            android:layout_marginStart="8dp"/>
+    </LinearLayout>
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerBooksMain"
@@ -75,7 +91,7 @@
         android:layout_height="0dp"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="40dp"
-        app:layout_constraintTop_toBottomOf="@id/catalog"
+        app:layout_constraintTop_toBottomOf="@id/searchBar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
