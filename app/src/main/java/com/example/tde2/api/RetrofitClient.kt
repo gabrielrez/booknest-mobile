@@ -15,18 +15,18 @@ object RetrofitClient {
             val originalRequest: Request = chain.request()
             val requestWithHeaders = originalRequest.newBuilder()
                 .header("Authorization", TOKEN)
+                .header("Accept", "application/json")
                 .build()
             chain.proceed(requestWithHeaders)
         }
         .build()
 
     val instance: BookApiService by lazy {
-        val retrofit = Retrofit.Builder()
+        Retrofit.Builder()
             .baseUrl(BASE_URL)
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-
-        retrofit.create(BookApiService::class.java)
+            .create(BookApiService::class.java)
     }
 }

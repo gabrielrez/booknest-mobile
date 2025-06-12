@@ -30,8 +30,14 @@ class ProfileActivity : AppCompatActivity() {
         }
 
         recyclerLibrary.layoutManager = GridLayoutManager(this, 3)
-        adapter = LibraryAdapter(emptyList()) {
-            startActivity(Intent(this, BookActivity::class.java))
+        adapter = LibraryAdapter(emptyList()) { book ->
+            val intent = Intent(this, BookActivity::class.java)
+            intent.putExtra("book_external_id", book.externalId)
+            intent.putExtra("book_title", book.title)
+            intent.putExtra("book_author", book.author)
+            intent.putExtra("book_description", book.description)
+            intent.putExtra("book_cover", book.cover)
+            startActivity(intent)
         }
         recyclerLibrary.adapter = adapter
 
